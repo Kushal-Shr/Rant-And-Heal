@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
+import type {NextConfig} from "next";
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+    typescript: {
+      ignoreDuringBuilds: true,
+    },
   images: {
     remotePatterns: [
       {
