@@ -31,7 +31,7 @@ export async function POST (request: Request) {
                 Hi there, I'm Momo — your comfort buddy. You can tell me anything. How are you feeling today?`
         })
 
-        const userId = "user_2vbLPxIlefETYTh6H1GtsnXZIZ1";
+        const userId = await auth();
 
         if (!userId) {
             return new Response('Unauthorized', { status: 401 });
