@@ -25,7 +25,7 @@ export default function RootLayout({
       baseTheme: dark,
     }}>
       <html lang="en" className="dark" suppressHydrationWarning = {true}>
-        <body className={`roboto_condensed.className antialiased`}>
+        <body className={`roboto_condensed.className antialiased bg-black`}>
           {/* header */}
           <header>
             <Header />

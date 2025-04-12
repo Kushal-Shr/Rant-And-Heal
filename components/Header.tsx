@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 const Header = () => {
   return (
-    <header className='fixed bg-muted h-30 flex items-center px-10 w-full'>
+    <header className='fixed h-30 flex items-center px-10 w-full bg-muted'>
         <nav className='container h-20 flex items-center justify-between'>
             <Link href = '/'>
                 <Image src = "/logo.png" alt = "Rant & Heal Logo" height = {30} width = {200}/>

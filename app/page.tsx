@@ -1,7 +1,9 @@
-import Image from "next/image";
+import HomeDesc from "../components/homeDesc";
 
 export default function Home() {
   return (
-    <button>Hi</button>
+    <section>
+      <HomeDesc />
+    </section>
   );
 }
