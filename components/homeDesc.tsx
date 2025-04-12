@@ -8,7 +8,7 @@ const HomeDesc = () => {
       <div className="space-y-10 flex justify-center items-center flex-col text-center">
         <div>
           <h1 className="text-5xl md:text-6xl font-extrabold">RANT AND HEAL</h1>
-          <p className="text-lg md:text-2xl mt-4">A safe place to Heal</p>
+          <p className="text-lg md:text-2xl mt-4">Where Every Rant Begins the Journey to Healing</p>
         </div>
 
         <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
