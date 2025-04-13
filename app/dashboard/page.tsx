@@ -6,6 +6,9 @@ import { vapi } from '@/lib/vapi.sdk';
 import Agent from '@/components/Agent';
 import { Button } from '@/components/ui/button';
 import { useUser } from '@clerk/nextjs';
+import { db } from '@/firebase/client'; // your client-side Firestore
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import Link from 'next/link';
 
 enum CallStatus {
   INACTIVE = 'INACTIVE',
@@ -18,6 +21,7 @@ interface SavedMessage {
 }
 
 const Page = () => {
+  
   const router = useRouter();
   const { user } = useUser();
 
@@ -77,34 +81,67 @@ const Page = () => {
   const handleDisconnect = async () => {
     vapi.stop();
     setCallStatus(CallStatus.INACTIVE);
+  
+    if (!userId || messages.length === 0) return;
+  
+    try {
+      // Save conversation to Firestore under users/{userId}/sessions
+      await addDoc(collection(db, 'users', userId, 'sessions'), {
+        messages,
+        createdAt: serverTimestamp(),
+      });
+  
+      console.log('✅ Conversation saved to Firebase');
+    } catch (error) {
+      console.error('❌ Error saving conversation:', error);
+    }
+  
     setMessages([]);
   };
 
   const latestMessage = messages[messages.length - 1]?.content;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black pt-30 space-y-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-primary pt-30 space-y-6">
       {/* Agent and User Cards */}
       <Agent callStatus={callStatus} isSpeaking={isSpeaking} />
 
       {/* Message Preview */}
       {latestMessage && callStatus === CallStatus.ACTIVE && (
-        <div className="border-2 bg-muted px-20 py-6 rounded-4xl text-white">
+        <div className="border-2 border-themed bg-highlight px-20 py-6 rounded-4xl text-dark">
           <p>{latestMessage}</p>
         </div>
       )}
 
       {/* Call Buttons */}
-      <div>
+      <div className="flex flex-col sm:flex-row gap-4 items-center">
         {callStatus === CallStatus.ACTIVE ? (
           <Button onClick={handleDisconnect} className="bg-red-500 text-white px-10 py-7 rounded-4xl">
             End Call
           </Button>
         ) : (
-          <Button onClick={handleCall} className="bg-green-500 text-white px-10 py-7 rounded-4xl">
+          <Button onClick={handleCall} className="bg-accent-secondary hover:bg-accent text-white px-10 py-7 rounded-4xl">
             Start Call
           </Button>
         )}
+        
+        <Link href="/let-it-go">
+          <Button 
+            variant="outline" 
+            className="border-accent text-dark hover:bg-highlight px-10 py-7 rounded-4xl"
+          >
+            Let It Go
+          </Button>
+        </Link>
+
+        <Link href="/about">
+          <Button 
+            variant="outline" 
+            className="border-accent text-dark hover:bg-highlight px-10 py-7 rounded-4xl"
+          >
+            About Us
+          </Button>
+        </Link>
       </div>
     </div>
   );

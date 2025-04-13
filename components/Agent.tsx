@@ -17,23 +17,23 @@ const Agent = ({ callStatus, isSpeaking }: AgentProps) => {
   return (
     <div className="flex gap-10 flex-wrap justify-center">
       {/* Agent Card */}
-      <div className="relative flex flex-col items-center border-4 border-white w-[350px] h-[420px] rounded-3xl p-6 bg-white/10">
-        {isSpeaking && (
-          <span className="absolute animate-ping rounded-full w-[270px] h-[270px] bg-gray-800 opacity-30 z-0"></span>
+      <div className="relative flex flex-col items-center border-4 border-white w-[350px] h-[420px] rounded-3xl p-6 bg-[#FFECD6]/10">
+        {isSpeaking &&(
+          <span className="absolute animate-ping rounded-full w-[150px] h-[150px] mt-22 bg-[#FFCC80] opacity-20 z-0"></span>
         )}
         <Image
           src="/momo.png"
           alt="AI Psychologist"
-          width={250}
-          height={250}
+          width={270}
+          height={270}
           className="object-cover rounded-full z-10"
         />
-        <h3 className="mt-4 text-xl font-semibold text-white z-10">MoMoBuddy</h3>
+        <h3 className="text-xl font-semibold text-[#4A3C32] z-10">MoMoBuddy</h3>
       </div>
 
       {/* User Card - only if call is active */}
       {callStatus === 'ACTIVE' && (
-        <div className="relative flex flex-col items-center border-4 border-white w-[350px] h-[420px] rounded-3xl py-25 bg-white/10 space-y-19">
+        <div className="relative flex flex-col items-center border-4 border-white w-[350px] h-[420px] rounded-3xl py-25 bg-[#FFECD6]/10 space-y-19">
           
           {profileImage && (
             <Image
@@ -44,7 +44,7 @@ const Agent = ({ callStatus, isSpeaking }: AgentProps) => {
               className="object-cover rounded-full z-10"
             />
           )}
-          <h3 className="mt-4 text-xl font-semibold text-white z-10">{username}</h3>
+          <h3 className="mt-1 text-xl font-semibold text-[#4A3C32] z-10">{username}</h3>
         </div>
       )}
     </div>

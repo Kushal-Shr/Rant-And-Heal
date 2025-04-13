@@ -76,6 +76,15 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --color-primary-bg: #FFF5D6;     /* Lighter yellow-beige background */
+  --color-secondary-bg: #FFFAEB;   /* Very light cream for cards/containers */
+  --color-accent-warm: #FFCB85;    /* Warm yellow accent */
+  --color-accent-secondary: #FFB36B; /* Slightly peachier accent */
+  --color-highlight: #FBE3A2;      /* Light yellow highlight */
+  --color-text-dark: #54483B;      /* Dark brown for headings/text */
+  --color-text-medium: #7D6E5B;    /* Medium brown for secondary text */
+  --color-success: #83C28A;        /* Success green, slightly warmer */
+  --color-button-hover: #FFAD5C;   /* Hover state for buttons */
 }
 
 .dark {
@@ -119,6 +128,160 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes slideInFromLeft {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideInFromTop {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes slideInFromBottom {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+
+/* Animation Utility Classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.animate-slide-from-left {
+  animation: slideInFromLeft 0.5s ease-out forwards;
+}
+
+.animate-slide-from-right {
+  animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+.animate-slide-from-top {
+  animation: slideInFromTop 0.5s ease-out forwards;
+}
+
+.animate-slide-from-bottom {
+  animation: slideInFromBottom 0.5s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease infinite;
+}
+
+/* Animation Durations */
+.duration-300 {
+  animation-duration: 300ms;
+}
+
+.duration-500 {
+  animation-duration: 500ms;
+}
+
+.duration-700 {
+  animation-duration: 700ms;
+}
+
+.duration-1000 {
+  animation-duration: 1000ms;
+}
+
+/* Animation Delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+/* Custom Font Styling */
+.font-script {
+  font-family: cursive, "Segoe Script", "Brush Script MT", "Comic Sans MS", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* Custom background */
+.bg-cream-100 {
+  background-color: rgba(255, 248, 225, 0.9);
+}
+
+/* Color utility classes */
+.bg-primary {
+  background-color: var(--color-primary-bg);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary-bg);
+}
+
+.bg-accent {
+  background-color: var(--color-accent-warm);
+}
+
+.bg-accent-secondary {
+  background-color: var(--color-accent-secondary);
+}
+
+.bg-highlight {
+  background-color: var(--color-highlight);
+}
+
+.border-themed {
+  border-color: var(--color-border);
+}
+
+.text-dark {
+  color: var(--color-text-dark);
+}
+
+.text-medium {
+  color: var(--color-text-medium);
 }
 
 

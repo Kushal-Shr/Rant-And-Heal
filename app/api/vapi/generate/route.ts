@@ -1,7 +1,7 @@
-import { db } from "@/firebase/admin";
 import {google} from "@ai-sdk/google"
 import {generateText} from 'ai';
 import { auth } from "@clerk/nextjs/server";
+import { db } from "@/firebase/admin";
 
 export async function GET() {
     return Response.json({success: true, data: 'Thank You!'}, {status: 200});
@@ -30,21 +30,15 @@ export async function POST (request: Request) {
 
                 Hi there, I'm Momo — your comfort buddy. You can tell me anything. How are you feeling today?`
         })
-
-        const userId = await auth();
+        
+        const userId = auth();
 
         if (!userId) {
             return new Response('Unauthorized', { status: 401 });
           }
 
         const call = {
-            userId: userId, 
-            emotionalState: emotional_state, 
-            problem: problem, 
-            cause: cause, 
-            preference: preference, 
-            response: [conversation], 
-            createdAt: new Date().toISOString(),
+            response: [conversation]
         }
 
         await db.collection('calls').add(call);
