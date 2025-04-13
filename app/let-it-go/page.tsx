@@ -106,7 +106,7 @@ const LetItGoPage = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 items-center mt-6">
           <Button
-            onClick={() => router.push('/appointments')}
+            onClick={() => router.push('/appointment')}
             variant="secondary"
             className="px-8 py-3 rounded-4xl border-[#E38E74] text-[#4A3C32] hover:bg-[#FFECD6] font-medium"
           >

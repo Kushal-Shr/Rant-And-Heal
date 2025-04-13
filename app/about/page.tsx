@@ -21,9 +21,25 @@ const AboutPage = () => {
         <div className="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-[#FBE3A2] mb-8">
           <h2 className="text-2xl font-bold text-[#4A3C32] mb-4">Our Mission</h2>
           <p className="text-[#7D6958] mb-6 leading-relaxed">
-          Rant and Heal is more than a website — it's your safe haven. A space built with empathy, understanding, and a belief that no one needs to suffer alone. We think that sometimes life becomes too much, too complicated, and just too heavy to carry. We also understand how hard it is to express those feelings — especially in a world that typically asks us to "stay strong" and "keep it together." That's why we created Rant and Heal — a safe corner of the web where you don't have to pretend, put on a show, or swallow things anymore.
+          Rant and Heal is more than just a website — it's a soft corner for heavy hearts.  It's a space where you can let it all out, unfiltered and unjudged. Whether you're overwhelmed, anxious, lost, or just need someone to listen, here, your feelings are valid. This is your safe place to rant — to say what you can't say anywhere else — and begin to heal.
           </p>
-          <p className="text-[#7D6958] mb-6 leading-relaxed">Our uniquely crafted AI therapist, fondly labeled with comfort food vocabulary (yes, momo! — because recovery is meant to be homely) is waiting around the corner to listen to you, offer guidance, and nudge you through your troubles gently. You'll receive introspective observations, emotional guidance, and personalized suggestions. And in case we determine that you might need more, we'll point you in the direction of professional services — even licensed therapists, with paid therapy sessions for deeper healing.</p>
+          <p className="text-[#7D6958] mb-6 leading-relaxed">
+          We understand that healing isn't always linear, and sometimes, all it takes is a moment of release and a warm plate of comfort. That's why we pair emotional support with something as grounding as our signature comfort food — momos — to help you feel held, even when the world feels too loud.
+          </p>
+          <p className="text-[#7D6958] mb-6 leading-relaxed">Most importantly, Rant and Heal is on a mission: <br />
+            To break the stigma.<br />
+            To remind you that asking for help is not weakness, it's strength.<br />
+            That you don't have to “have it all together” all the time.<br />
+            And that mental health matters — especially yours.<br />
+            <br />
+            We're here to remind you:<br />
+            You're not “too much.”<br />
+            You're not alone.<br />
+            You're not broken.<br />
+
+            You're healing — and we're here for every step of it.<br />
+            <br />
+            So come as you are. Rant it out. Heal a little. And let's rewrite what mental health looks like-together.</p>
           
           <h2 className="text-2xl font-bold text-[#4A3C32] mb-4">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-6 mb-6">
@@ -43,7 +59,7 @@ const AboutPage = () => {
               </div>
               <h3 className="text-xl font-semibold text-[#4A3C32] mb-2">Talk It Through</h3>
               <p className="text-[#7D6958]">
-                Have a voice conversation with our AI companion, who is there to listen and provide support.
+                Have a voice conversation with our AI Companion - Momo, who is there to listen and provide support.
               </p>
             </div>
             
