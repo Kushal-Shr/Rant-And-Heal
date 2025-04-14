@@ -54,4 +54,33 @@ A warm, human-first mental wellness platform that helps users express their emot
 - **Vercel** – Fast deployment and serverless functions
 
 ---
+## 🔐 Environment Variables
+### Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 
+### Firebase (Admin SDK)
+FIREBASE_PROJECT_ID=your_firebase_project_id
+FIREBASE_PRIVATE_KEY=your_firebase_private_key
+FIREBASE_CLIENT_EMAIL=your_firebase_client_email
+
+### Gemini AI (Google Generative AI)
+GOOGLE_GENERATIVE_AI_API_KEY=your_google_generative_ai_key
+
+### Vapi (Voice API)
+NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_web_token
+NEXT_PUBLIC_VAPI_WORKFLOW_ID=your_vapi_workflow_id
+---
+
+## 🚀 Getting Started
+- git clone https://github.com/yourusername/rant-and-heal.git
+- cd rant-and-heal
+- npm install
+- npm run dev
+
+---
+## 💙 Try It Out
+- 🌐 Website: rantandheal.vercel.app 
