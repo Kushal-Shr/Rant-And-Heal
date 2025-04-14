@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rant & Heal – AI-Powered Mental Health Support Platform 💬🧠
 
-## Getting Started
+A warm, human-first mental wellness platform that helps users express their emotions, feel heard, and connect with real help. Powered by cutting-edge AI and designed for comfort, **Rant & Heal** gives everyone a space to rant, reflect, and heal — judgment-free.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Implemented Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. Authentication
+- Secure login using Clerk
+- User data is safely stored and linked via Firebase
+- Seamless onboarding experience
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Rant Freely (Let It Go)
+- Private journaling section for users to write freely
+- Emotion release through unfiltered text input
+- No data judgment, no analytics — just catharsis
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Talk to MomoBuddy (AI Therapist)
+- Real-time **voice conversations** with an AI therapist
+- Built using **Google’s Gemini API** for emotionally-aware responses
+- Warm, empathetic responses — no diagnosis, just support
 
-## Learn More
+### 4. Book Appointments with Real Therapists
+- Browse and schedule appointments with professional therapists
+- Select date/time and write a short note about your current situation
+- Built-in calendar selection UI
 
-To learn more about Next.js, take a look at the following resources:
+### 5. Voice Communication
+- Powered by **Vapi**, enabling smooth two-way voice interaction with MomoBuddy
+- Transcriptions sent for AI processing in real time
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 6. Safe, Supportive UI
+- ShadCN components and Tailwind CSS for accessible, responsive UI
+- Smooth Framer Motion animations and transitions
+- Interactive loaders and soft-glow buttons for emotional safety
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠 Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Frontend:
+- **Next.js 14+** – App Router and SSR
+- **Tailwind CSS** – Utility-first CSS for fast styling
+- **ShadCN UI** – Beautiful, accessible components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Backend & AI:
+- **Firebase Firestore** – Realtime database for storing user rants and preferences
+- **Google Gemini API** – Natural, empathetic AI conversation
+- **Vapi** – Real-time voice interaction between user and AI
+- **Clerk** – Authentication, user management
+
+### Hosting & Integration:
+- **Vercel** – Fast deployment and serverless functions
+
+---
+
