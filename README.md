@@ -81,6 +81,7 @@ GOOGLE_GENERATIVE_AI_API_KEY=your_google_generative_ai_key
 NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_web_token
 
 NEXT_PUBLIC_VAPI_WORKFLOW_ID=your_vapi_workflow_id
+
 ---
 
 ## 🚀 Getting Started
