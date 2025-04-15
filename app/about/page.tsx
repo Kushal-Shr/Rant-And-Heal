@@ -24,7 +24,7 @@ const AboutPage = () => {
           Rant and Heal is more than just a website — it's a soft corner for heavy hearts.  It's a space where you can let it all out, unfiltered and unjudged. Whether you're overwhelmed, anxious, lost, or just need someone to listen, here, your feelings are valid. This is your safe place to rant — to say what you can't say anywhere else — and begin to heal.
           </p>
           <p className="text-[#7D6958] mb-6 leading-relaxed">
-          We understand that healing isn't always linear, and sometimes, all it takes is a moment of release and a warm plate of comfort. That's why we pair emotional support with something as grounding as our signature comfort food — momos — to help you feel held, even when the world feels too loud.
+          We understand that healing isn't always linear, and sometimes, all it takes is a moment of release and a warm plate of comfort. That's why we pair emotional support with something as grounding as our signature comfort food — momo — to help you feel held, even when the world feels too loud.
           </p>
           <p className="text-[#7D6958] mb-6 leading-relaxed">Most importantly, Rant and Heal is on a mission: <br />
             To break the stigma.<br />
