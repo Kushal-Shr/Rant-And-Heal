@@ -3,6 +3,7 @@ import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MoodTrackerWrapper from "@/components/MoodTrackerWrapper"; // Temporarily commented out
 import { ClerkProvider } from "@clerk/nextjs";
 
 const roboto_condensed = Roboto_Condensed({
@@ -38,6 +39,9 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           {/* footer */}
           <Footer />
+          
+          {/* Mood Tracker - Temporarily disabled */}
+          <MoodTrackerWrapper />
         </body>
       </html>
     </ClerkProvider>

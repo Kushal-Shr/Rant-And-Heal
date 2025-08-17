@@ -2,8 +2,8 @@ import { SignUp } from "@clerk/nextjs"
 
 const Page = () => {
   return (
-    <SignUp 
-      forceRedirectUrl={'/dashboard'} 
+    <SignUp
+      forceRedirectUrl={'/dashboard'}
       appearance={{
         elements: {
           formButtonPrimary: 'bg-[#E38E74] hover:bg-[#D47A60]',
