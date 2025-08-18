@@ -15,6 +15,7 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
   const [isVisible, setIsVisible] = useState(true);
   const [currentMood, setCurrentMood] = useState(5);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Define emoji and mood mapping
   const emojiButtons = [
@@ -46,6 +47,8 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
   };
 
   const handleSaveMood = async () => {
+    setErrorMessage(null); // Clear any previous errors
+
     const today = new Date().toDateString();
     const moodData: MoodData = {
       date: today,
@@ -54,21 +57,18 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
     };
 
     try {
-      if (typeof window !== 'undefined') {
-        let moodHistory: MoodData[] = JSON.parse(
-          localStorage.getItem('moodHistory') || '[]'
-        );
-        
-        // Remove existing entry for today to avoid duplicates
-        moodHistory = moodHistory.filter(entry => entry.date !== today);
-        moodHistory.push(moodData);
-        
-        localStorage.setItem('moodHistory', JSON.stringify(moodHistory));
-        localStorage.setItem('lastMoodPopup', today);
-      }
+      const response = await fetch('/api/mood', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(moodData),
+      });
 
-      if (onSave) {
-        onSave(moodData);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to save mood data');
       }
 
       setShowSuccess(true);
@@ -78,9 +78,10 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
         setShowSuccess(false);
       }, 2000);
 
-      console.log('Mood saved:', moodData);
-    } catch (error) {
+      console.log('Mood saved:', result.data);
+    } catch (error: any) {
       console.error('Error saving mood:', error);
+      setErrorMessage(error.message);
     }
   };
 
@@ -181,6 +182,11 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
         {showSuccess && (
           <div className="mt-4 bg-green-500 text-white px-6 py-3 rounded-full text-center">
             Mood saved successfully! 🎉
+          </div>
+        )}
+        {errorMessage && (
+          <div className="mt-4 bg-red-500 text-white px-6 py-3 rounded-full text-center">
+            {errorMessage}
           </div>
         )}
       </div>
