@@ -17,13 +17,18 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Define emoji and mood mapping
+  // Define emoji and mood mapping with a more comprehensive list of feelings
   const emojiButtons = [
-    { emoji: '😄', mood: 10, label: 'Very Happy', range: [9, 10] },
-    { emoji: '😊', mood: 8, label: 'Happy', range: [7, 8] },
-    { emoji: '🙂', mood: 6, label: 'Okay', range: [5, 6] },
-    { emoji: '😐', mood: 4, label: 'Sad', range: [3, 4] },
-    { emoji: '😢', mood: 2, label: 'Very Sad', range: [1, 2] }
+    { emoji: '🔥', mood: 1, label: 'Furious', range: [1, 1] },
+    { emoji: '😡', mood: 2, label: 'Angry', range: [2, 2] },
+    { emoji: '😫', mood: 3, label: 'Stressed', range: [3, 3] },
+    { emoji: '😟', mood: 4, label: 'Anxious', range: [4, 4] },
+    { emoji: '😢', mood: 5, label: 'Sad', range: [5, 5] },
+    { emoji: '😐', mood: 6, label: 'Neutral', range: [6, 6] },
+    { emoji: '😌', mood: 7, label: 'Calm', range: [7, 7] },
+    { emoji: '😊', mood: 8, label: 'Happy', range: [8, 8] },
+    { emoji: '🥳', mood: 9, label: 'Excited', range: [9, 9] },
+    { emoji: '🤩', mood: 10, label: 'Ecstatic', range: [10, 10] }
   ];
 
   // Logic to determine which emoji to display on the slider handle
@@ -98,10 +103,10 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 p-4 font-sans">
-      <div className="bg-amber-50 rounded-3xl shadow-2xl max-w-md w-full relative p-10">
+      <div className="bg-amber-50 rounded-3xl shadow-2xl max-w-md w-full relative p-10 flex flex-col items-center">
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-amber-800 hover:text-amber-900 transition-colors"
+          className="absolute top-4 right-4 text-amber-800 hover:text-amber-900 transition-colors hover:cursor-pointer"
         >
           <X size={24} />
         </button>
@@ -110,31 +115,11 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
           How are you feeling today?
         </h1>
 
-        <div className="flex justify-between gap-2 mb-8">
-          {emojiButtons.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleEmojiSelect(item)}
-              className={`
-                w-16 h-16 rounded-full border-2 border-amber-600 bg-yellow-200 
-                text-3xl flex items-center justify-center cursor-pointer 
-                transition-all duration-300 hover:scale-110 hover:shadow-lg
-                ${getIsButtonActive(currentMood, item.range) ? 
-                  'bg-yellow-300 border-amber-700 scale-110 shadow-lg' : ''
-                }
-              `}
-              title={item.label}
-            >
-              {item.emoji}
-            </button>
-          ))}
-        </div>
-
-        <div className="mb-8">
+        <div className="w-full mb-10">
           <div className="relative mb-4">
             {/* The custom emoji handle that moves with the slider */}
             <div 
-              className="absolute -top-12 text-3xl transform -translate-x-1/2 transition-all duration-300"
+              className="absolute -top-12 text-4xl transform -translate-x-1/2 transition-all duration-300"
               style={{ left: `${sliderPercentage}%` }}
             >
               {getEmojiForSlider(currentMood)}
@@ -153,13 +138,11 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
               "
               style={{
                 background: 'linear-gradient(to right, #fca5a5, #fcd34d, #86efac)',
-                // Custom thumb style using -webkit-slider-thumb (for webkit browsers like Chrome)
-                // and ::-moz-range-thumb (for Firefox)
-                // This is needed to style the handle to match the image
+                // Custom thumb style for browsers
                 '--tw-bg-from': '#fca5a5',
                 '--tw-bg-to': '#86efac',
                 '--tw-bg-via': '#fcd34d',
-              } as React.CSSProperties} // Cast to React.CSSProperties to allow custom properties
+              } as React.CSSProperties}
             />
           </div>
           
@@ -167,6 +150,29 @@ const MoodTracker = ({ onSave }: MoodTrackerProps) => {
             <span>1</span>
             <span>10</span>
           </div>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
+          {emojiButtons.map((item, index) => (
+            <div key={index} className="flex flex-col items-center gap-2">
+              <button
+                onClick={() => handleEmojiSelect(item)}
+                className={`
+                  w-16 h-16 rounded-full border-2 border-amber-600 bg-yellow-200 
+                  text-3xl flex items-center justify-center cursor-pointer 
+                  transition-all duration-300 hover:scale-110 hover:shadow-lg
+                  ${getIsButtonActive(currentMood, item.range) ? 
+                    'bg-yellow-300 border-amber-700 scale-110 shadow-lg' : ''
+                  }
+                `}
+              >
+                {item.emoji}
+              </button>
+              <span className="text-sm font-medium text-amber-700 text-center">
+                {item.label}
+              </span>
+            </div>
+          ))}
         </div>
 
         <button
